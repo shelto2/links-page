@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Shelton, Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --asphalt: #15171b;
+    --asphalt-2: #1c1f24;
+    --concrete: #8a8d93;
+    --concrete-dim: #55585e;
+    --chalk: #edeff2;
+    --signal: #ff4c29;
+    --steel: #6f93b3;
+    --line: #2c2f35;
+
+    --display: 'Oswald', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--asphalt);
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 34px 34px;
+    background-position: center top;
+    color: var(--chalk);
+    font-family: var(--body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 56px 20px 40px;
+  }
+
+  a { color: inherit; }
+  ::selection { background: var(--signal); color: var(--asphalt); }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .avatar {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background: var(--asphalt-2);
+    border: 1px dashed var(--concrete-dim);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar .hint {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--concrete-dim);
+    text-align: center;
+    letter-spacing: 0.04em;
+    padding: 0 8px;
+    text-transform: uppercase;
+  }
+
+  .bib {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--asphalt);
+    background: var(--signal);
+    padding: 4px 10px;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+
+  .tagline {
+    text-align: center;
+    font-size: 14px;
+    color: var(--concrete);
+    margin-top: 8px;
+  }
+
+  .roles {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .roles span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--steel);
+    border: 1px solid var(--line);
+    padding: 5px 9px;
+  }
+
+  .links {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
+    background: var(--asphalt-2);
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    transition: border-color 0.15s ease, transform 0.1s ease;
+  }
+  .link-btn:hover { border-color: var(--concrete-dim); transform: translateY(-1px); }
+  .link-btn:active { transform: translateY(0); }
+
+  .link-btn.primary {
+    background: var(--signal);
+    border-color: var(--signal);
+  }
+  .link-btn.primary .label,
+  .link-btn.primary .arrow { color: var(--asphalt); }
+  .link-btn.primary .sub { color: rgba(21,23,27,0.7); }
+  .link-btn.primary:hover { background: #ff6a45; border-color: #ff6a45; }
+
+  .link-btn .text { display: flex; flex-direction: column; gap: 2px; }
+  .link-btn .label {
+    font-family: var(--display);
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .link-btn .sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--concrete);
+  }
+  .link-btn .arrow {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--concrete);
+    flex-shrink: 0;
+  }
+
+  .link-btn.brand { align-items: center; }
+  .link-btn.brand .logo-chip {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 24px;
+    width: 88px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .link-btn.brand .logo-chip img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 28px 0 12px;
+  }
+  .divider span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--concrete-dim);
+    white-space: nowrap;
+  }
+  .divider .rule { flex: 1; height: 1px; background: var(--line); }
+
+  footer {
+    margin-top: 40px;
+    text-align: center;
+  }
+  footer a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--concrete);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  footer .fine {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--concrete-dim);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+  }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+  .card > *:not(.links) { animation: cardIn 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .links { animation: none; }
+  .links li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: cardIn 0.5s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .links:nth-of-type(1) li:nth-child(1) { animation-delay: 0.25s; }
+  .links:nth-of-type(1) li:nth-child(2) { animation-delay: 0.32s; }
+  .links:nth-of-type(2) li:nth-child(1) { animation-delay: 0.05s; }
+  .links:nth-of-type(2) li:nth-child(2) { animation-delay: 0.12s; }
+  .links:nth-of-type(2) li:nth-child(3) { animation-delay: 0.19s; }
+  .links:nth-of-type(3) li:nth-child(1) { animation-delay: 0.05s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card > *, .links li {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="bib">MEN'S PRO · HYROX</div>
+
+  <div class="avatar">
+    <!-- Replace src with your own photo, e.g. images/avatar.jpg -->
+    <img src="" alt="Adam Shelton" onerror="this.style.display='none'">
+    <div class="hint">Swap avatar</div>
+  </div>
+
+  <h1>Adam Shelton</h1>
+  <p class="tagline">Canberra, AU. Everyday athlete, built around everything else.</p>
+
+  <div class="roles">
+    <span>Compete</span>
+    <span>Create</span>
+    <span>Learn</span>
+  </div>
+
+  <ul class="links">
+    <li>
+      <a class="link-btn primary" href="https://instagram.com/shelto2" target="_blank" rel="noopener">
+        <div class="text">
+          <span class="label">Follow @shelto2</span>
+          <span class="sub">Instagram, training, racing, the real week</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <a class="link-btn" href="https://adamshelton.xyz" target="_blank" rel="noopener">
+        <div class="text">
+          <span class="label">Full site</span>
+          <span class="sub">adamshelton.xyz, bio, races, partnerships</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="divider"><span>Brand Partners</span><div class="rule"></div></div>
+
+  <ul class="links">
+    <li>
+      <a class="link-btn brand" href="https://maplemovement.com/adams" target="_blank" rel="noopener">
+        <div class="logo-chip"><img src="images/maple-movement-logo.png" alt="Maple Movement logo"></div>
+        <div class="text" style="flex:1;">
+          <span class="label">Maple Movement</span>
+          <span class="sub">Energy gels, affiliate partner</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <!-- Add your Whoop logo to /images and update this src -->
+      <a class="link-btn brand" href="https://join.whoop.com/adam/" target="_blank" rel="noopener">
+        <div class="logo-chip"><img src="images/whoop-logo.png" alt="Whoop logo"></div>
+        <div class="text" style="flex:1;">
+          <span class="label">Whoop</span>
+          <span class="sub">Recovery and fitness tracking, affiliate</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+    <li>
+      <a class="link-btn brand" href="https://head-gear.com.au/" target="_blank" rel="noopener">
+        <div class="logo-chip"><img src="images/headgear-logo.png" alt="Headgear logo"></div>
+        <div class="text" style="flex:1;">
+          <span class="label">Headgear</span>
+          <span class="sub">Men's haircare, partner</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="divider"><span>Get In Touch</span><div class="rule"></div></div>
+
+  <ul class="links">
+    <li>
+      <a class="link-btn" href="mailto:adamshelton03@gmail.com">
+        <div class="text">
+          <span class="label">Email</span>
+          <span class="sub">adamshelton03@gmail.com</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    <a href="https://adamshelton.xyz" target="_blank" rel="noopener">adamshelton.xyz</a>
+    <div class="fine">© <span id="year"></span> Adam Shelton, Canberra, Australia</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
